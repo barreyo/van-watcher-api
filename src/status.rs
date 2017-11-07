@@ -1,5 +1,5 @@
 
-use rocket_contrib::{Json, Value};
+use rocket_contrib::Json;
 use rocket::State;
 
 #[derive(Debug, Serialize, Deserialize, Clone)]
@@ -16,10 +16,16 @@ pub struct ServerStatus {
 }
 
 impl ServerStatus {
-    pub fn new(v: String) -> Self {
+    pub fn new(v: Option<&'static str>) -> Self {
+
+        let mut version = "_UNKNOWN_";
+        if let Some(ver) = v {
+            version = ver;
+        }
+
         ServerStatus {
             status: ServerCondition::Starting,
-            version: v,
+            version: version.to_owned(),
         }
     }
 
