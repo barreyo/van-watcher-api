@@ -38,3 +38,8 @@ impl ServerStatus {
 pub fn get(v: State<ServerStatus>) -> Json<ServerStatus> {
     Json { 0: (*v).clone() }
 }
+
+#[get("/", rank = 2)]
+pub fn get_as_txt(v: State<ServerStatus>) -> Json<ServerStatus> {
+    get(v)
+}

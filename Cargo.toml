@@ -1,17 +1,4 @@
-[package]
-name = "van-watcher"
-version = "0.1.0"
-authors = ["Johan Backman <johback@student.chalmers.se>"]
-
-[dependencies]
-diesel = { version = "0.16", features = ["postgres"] }
-diesel_codegen = { version = "0.16", features = ["postgres"] }
-dotenv = "0.9.0"
-r2d2-diesel = "*"
-r2d2 = "*"
-rocket = "*"
-rocket_codegen = "*"
-rocket_contrib = "*"
-serde = "*"
-serde_json = "*"
-serde_derive = "*"
+[workspace]
+members = [
+    "api",
+]
